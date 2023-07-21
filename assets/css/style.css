@@ -24,8 +24,8 @@ h2 {
 }
 
 .bottom {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 #user_pick {
@@ -35,5 +35,5 @@ h2 {
 
 #guess {
   text-align: center;
-  padding: 2rem;
+  padding: 10px 30px;
 }

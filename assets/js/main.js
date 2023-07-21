@@ -2,6 +2,8 @@
 
 const radioBtns = document.querySelector("#buttons");
 const btns = document.querySelectorAll("#buttons input");
+const btnD = document.querySelector("#d");
+const custom = document.querySelector(".custom");
 const userPick = document.querySelector("#user_pick");
 const output = document.querySelector("#output");
 const guess = document.querySelector("#guess");
@@ -16,6 +18,15 @@ const ranNumGen = () => {
   return Math.ceil(Math.random() * 100);
 };
 
+// # Costumeingabe
+btnD.addEventListener("click", () => {
+  custom.insertAdjacentHTML(
+    "beforeend",
+    `<input type="number" id="customPick"></input>`
+  );
+  let customPick = document.querySelector("#customPick").value;
+});
+
 // # Rundenauswahl
 const roundPick = () => {
   if (btns[0].checked) {
@@ -25,7 +36,7 @@ const roundPick = () => {
   } else if (btns[2].checked) {
     roundMax = 6;
   } else if (btns[3].checked) {
-    roundMax = 7;
+    roundMax = customPick;
   }
 };
 
