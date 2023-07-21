@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Number Guessing Game</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script defer src="./assets/js/main.js"></script>
   </head>
@@ -12,22 +12,23 @@
       <section>
         <h2>Rounds?</h2>
         <div id="buttons">
-          <input type="radio" name="rounds" id="a" value="4" checked />
+          <input type="radio" name="rounds" id="a" checked />
           <label for="a">4</label>
-          <input type="radio" name="rounds" id="b" value="5" />
+          <input type="radio" name="rounds" id="b" />
           <label for="b">5</label>
-          <input type="radio" name="rounds" id="c" value="6" />
+          <input type="radio" name="rounds" id="c" />
           <label for="c">6</label>
-          <input type="radio" name="rounds" id="d" value="" />
+          <input type="radio" name="rounds" id="d" />
           <label for="d">costum</label>
         </div>
       </section>
-      <section>
+      <section class="bottom">
         <input type="text" name="user_pick" id="user_pick" />
         <div>
           <button id="guess">guess</button>
         </div>
-        <p id="output"></p>
+        <div id="output"></div>
+        <button id="restart">restart</button>
       </section>
     </main>
   </body>

@@ -3,3 +3,37 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  margin: 200px auto;
+  width: 300px;
+}
+
+main {
+  background-color: #ffe81e;
+}
+
+h2 {
+  text-align: center;
+  padding: 2rem;
+}
+
+#buttons {
+  text-align: center;
+  padding: 2rem;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+}
+
+#user_pick {
+  text-align: center;
+  line-height: 1rem;
+}
+
+#guess {
+  text-align: center;
+  padding: 2rem;
+}

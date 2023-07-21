@@ -1,9 +1,12 @@
 "use strict";
 
-const btns = document.querySelectorAll("#buttons");
+const radioBtns = document.querySelector("#buttons");
+const btns = document.querySelectorAll("#buttons input");
 const userPick = document.querySelector("#user_pick");
 const output = document.querySelector("#output");
 const guess = document.querySelector("#guess");
+const restart = document.querySelector("#restart");
+
 let roundNum = 0;
 let roundMax;
 let ranNum;
@@ -13,10 +16,22 @@ const ranNumGen = () => {
   return Math.ceil(Math.random() * 100);
 };
 
-// # Runden
+// # Rundenauswahl
 const roundPick = () => {
-  roundMax = document.querySelector("input:checked").value;
-  console.log(roundMax);
+  if (btns[0].checked) {
+    roundMax = 4;
+  } else if (btns[1].checked) {
+    roundMax = 5;
+  } else if (btns[2].checked) {
+    roundMax = 6;
+  } else if (btns[3].checked) {
+    roundMax = 7;
+  }
+};
+
+// # Radiobuttons ersetzen
+const radioButtonsVanish = () => {
+  radioBtns.innerHTML = `${roundNum} / ${roundMax}`;
 };
 
 // # Vergleich User v CPU
@@ -24,14 +39,28 @@ const comparisonUserComp = () => {
   const userPickVal = Number(userPick.value);
 
   if (userPickVal === ranNum) {
-    output.textContent = `You Win!`;
+    output.insertAdjacentHTML(
+      "beforeend",
+      `<p>You picked ${userPickVal}! You Win!</p>`
+    );
   } else if (userPickVal < ranNum) {
-    output.textContent = `go higher`;
+    output.insertAdjacentHTML(
+      "beforeend",
+      `<p>You picked ${userPickVal}! Go higher!</p>`
+    );
   } else {
-    output.textContent = `go lower`;
+    output.insertAdjacentHTML(
+      "beforeend",
+      `<p>You picked ${userPickVal}! Go lower!</p>`
+    );
   }
   console.log(ranNum);
 };
+
+// # Restart
+restart.addEventListener("click", () => {
+  roundNum = 0;
+});
 
 // # Gamelogic
 const gameLogic = () => {
@@ -44,6 +73,8 @@ const gameLogic = () => {
   }
   comparisonUserComp();
   roundNum++;
+  radioButtonsVanish();
+  // restart();
 };
 
 // # Ausführen der Gamelogic
